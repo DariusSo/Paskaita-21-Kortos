@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
     public static List<Korta> cardDeck = new ArrayList<>();
@@ -39,7 +40,14 @@ public class Main {
         System.out.println(i);
     }
     public static void shuffleDeck(){
-        Collections.shuffle(cardDeck);
+        //Collections.shuffle(cardDeck);
+        Random random = new Random();
+        for(int i = 0; i < 1000; i++){
+            int rand = random.nextInt(0, 52);
+            Korta temp = cardDeck.get(rand);
+            cardDeck.remove(rand);
+            cardDeck.add(0, temp);
+        }
     }
     public static void dealCards(Zaidejas z, Zaidejas z1){
         for(int i = 0; i < 2; i++) {
@@ -78,5 +86,4 @@ public class Main {
             System.out.println("Lygiosios!");
         }
     }
-
 }
